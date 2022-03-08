@@ -31,10 +31,8 @@ public class User {
     private String gender;
     private String dateOfBirth;
     private String city;
-    private double price;
     private String nationality;
     private String avatar;
-    private double height;
     private int status;
     private String description;
     private String requirement;
@@ -42,14 +40,19 @@ public class User {
     private Date vipDate;
     private String facebookUrl;
     private Long countOfDate;
+    private String cmtnd;
 
-    // 3 anh chan dung
+    // it nhat 3 anh
     @OneToMany(fetch = FetchType.EAGER)
-    private Set<Portrait> portraits;
+    private Set<Img> imgs;
 
     // Có 3 roles : Customer,Admin và nhà cung cấp dịch vụ (NCCDV)
     @OneToOne
     private Role role;
+
+    //Nhung thuoc tinh ben duoi la cua ben cung cap dich vu
+    //ko bat buoc nhap luc dang ky la customer
+    private double price;
 
     //List dich vu
     @ManyToMany
@@ -58,4 +61,6 @@ public class User {
     //Danh gia cua khach hang
     @ManyToMany
     private Set<Review> reviews;
+
+
 }
